@@ -96,3 +96,4 @@ def confusion_matrix(predictions, gt, class_names, output_file=None):
     else:
         plt.savefig(output_file, dpi=300, bbox_inches='tight')
     plt.close()
+

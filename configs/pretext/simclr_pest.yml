@@ -8,7 +8,7 @@ model_kwargs:
    features_dim: 128
 
 # Dataset
-train_db_name: pest_labeled_ratio_0.4
+train_db_name: pest_train_ratio_0.4_patches
 val_db_name: pest_val
 num_classes: 102
 
@@ -18,7 +18,7 @@ criterion_kwargs:
    temperature: 0.1 
 
 # Hyperparameters
-epochs: 50    # =====
+epochs: 30    # =====
 optimizer: sgd
 optimizer_kwargs:
    nesterov: False

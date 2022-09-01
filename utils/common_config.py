@@ -141,7 +141,7 @@ def get_train_dataset(p, transform, to_augmented_dataset=False,
         subset_file = './data/imagenet_subsets/%s.txt' %(p['train_db_name'])
         dataset = ImageNetSubset(subset_file=subset_file, split='train', transform=transform)
 
-    elif p['train_db_name'] in ['pest_labeled_ratio_0.4', 'debugdataset']:
+    elif p['train_db_name'] in ['pest_train_ratio_0.4_patches', 'debugdataset_patches']:
         from data.pestdataset import PestSubset
         subset_file = './data/pestdata_subsets/%s.txt' %(p['train_db_name'])
         dataset = PestSubset(subset_file=subset_file, split='train', transform=transform)

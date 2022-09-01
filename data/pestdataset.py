@@ -10,6 +10,12 @@ from PIL import Image
 from utils.mypath import MyPath
 from torchvision import transforms as tf
 from glob import glob
+import cv2
+import numpy as np
+from skimage.measure import regionprops
+import matplotlib.pyplot as plt
+import os
+import shutil
 
 
 class ImageNet(datasets.ImageFolder):
@@ -50,7 +56,10 @@ class  PestSubset(data.Dataset):
                     transform=None):
         super(PestSubset, self).__init__()
 
-        self.root = os.path.join(root, '%s' %(split))
+        if split == 'train':
+            self.root = root 
+        else:
+            self.root = os.path.join(root, '%s' %(split))
         self.transform = transform
         self.split = split
 
@@ -66,14 +75,15 @@ class  PestSubset(data.Dataset):
         # Gather the files (sorted)
         imgs = []
         for i, subdir in enumerate(subdirs):
-            subdir_path = os.path.join(self.root, subdir)
-            files = os.path.join(self.root, class_names[i], subdir)
-            imgs.append((files, class_names[i]))
+            if split == 'train':
+                file = os.path.join(self.root, subdir)
+            else:
+                file = os.path.join(self.root, class_names[i], subdir)
+            imgs.append((file, class_names[i]))
         self.imgs = imgs 
         self.classes = class_names
-        # print('imgs', self.imgs)
     
-	# Resize
+	    # Resize
         self.resize = tf.Resize(256)
 
     def get_image(self, index):

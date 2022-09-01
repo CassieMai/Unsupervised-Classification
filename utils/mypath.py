@@ -24,7 +24,7 @@ class MyPath(object):
             return '/path/to/imagenet/'
 
         elif database == 'pest':
-            return '/home/xiaocmai/scratch/datasets/pest-classification/pest-classification/'
+            return '/home/xiaocmai/scratch/Unsupervised-Classification/'
         
         else:
             raise NotImplementedError
