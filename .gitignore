@@ -1,0 +1,16 @@
+*.png
+*.jpg
+*.eps
+*.tif
+
+*.pth
+*.ckpt
+
+*.out
+*.txt
+*.pyc
+
+out/
+results/
+*.tar
+*.zip

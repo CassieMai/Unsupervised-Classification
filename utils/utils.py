@@ -63,7 +63,7 @@ def fill_memory_bank(loader, model, memory_bank):
 
     for i, batch in enumerate(loader):
         images = batch['image'].cuda(non_blocking=True)
-        targets = batch['target'].cuda(non_blocking=True)
+        targets = torch.tensor(np.float32(batch['target'])).cuda(non_blocking=True)
         output = model(images)
         memory_bank.update(output, targets)
         if i % 100 == 0:
