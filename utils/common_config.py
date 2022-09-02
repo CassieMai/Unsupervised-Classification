@@ -185,7 +185,7 @@ def get_val_dataset(p, transform=None, to_neighbors_dataset=False):
         subset_file = './data/imagenet_subsets/%s.txt' %(p['val_db_name'])
         dataset = ImageNetSubset(subset_file=subset_file, split='val', transform=transform)
     
-    elif p['val_db_name'] in ['pest_val']:
+    elif p['val_db_name'] in ['pest_val_patches']:
         from data.pestdataset import PestSubset
         subset_file = './data/pestdata_subsets/%s.txt' %(p['val_db_name'])
         dataset = PestSubset(subset_file=subset_file, split='val', transform=transform)    

@@ -56,7 +56,7 @@ class  PestSubset(data.Dataset):
                     transform=None):
         super(PestSubset, self).__init__()
 
-        if split == 'train':
+        if split in ['train', 'val']:
             self.root = root 
         else:
             self.root = os.path.join(root, '%s' %(split))
@@ -75,7 +75,7 @@ class  PestSubset(data.Dataset):
         # Gather the files (sorted)
         imgs = []
         for i, subdir in enumerate(subdirs):
-            if split == 'train':
+            if split in ['train', 'val']:
                 file = os.path.join(self.root, subdir)
             else:
                 file = os.path.join(self.root, class_names[i], subdir)

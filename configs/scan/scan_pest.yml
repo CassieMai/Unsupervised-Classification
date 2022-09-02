@@ -11,11 +11,11 @@ backbone: resnet50
 
 # Weight update
 update_cluster_head_only: True # Train only linear layer during SCAN
-num_heads: 10 # Use multiple heads
+num_heads: 1 # only use one head
 
 # Dataset
-train_db_name: debugdataset_patches
-val_db_name: pest_val
+train_db_name: pest_train_ratio_0.4_patches
+val_db_name: pest_val_patches
 num_classes: 102
 num_neighbors: 5
 
@@ -51,7 +51,7 @@ optimizer_kwargs:
    weight_decay: 0.0000
    nesterov: False
    momentum: 0.9
-epochs: 100
+epochs: 30  #100
 batch_size: 512
 num_workers: 12
 

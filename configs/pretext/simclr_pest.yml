@@ -9,7 +9,7 @@ model_kwargs:
 
 # Dataset
 train_db_name: pest_train_ratio_0.4_patches
-val_db_name: pest_val
+val_db_name: pest_val_patches
 num_classes: 102
 
 # Loss
